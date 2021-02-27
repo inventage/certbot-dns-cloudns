@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "certbot-dns-cloudns"
+version = "0.1.0"
+description = "ClouDNS DNS Authenticator plugin for Certbot"
+authors = ["Simon Marti <simon.marti@inventage.com>"]
+license = "Unlicense"
+repository = "https://github.com/inventage/certbot-dns-cloudns"
+readme = "README.rst"
+classifiers = [
+    'Development Status :: 3 - Alpha',
+    'Programming Language :: Python :: 3',
+    'License :: OSI Approved :: The Unlicense (Unlicense)',
+    'Intended Audience :: System Administrators',
+    'Topic :: Internet :: Name Service (DNS)',
+    'Topic :: Internet :: WWW/HTTP',
+    'Topic :: Security',
+    'Topic :: System :: Installation/Setup',
+    'Topic :: System :: Networking',
+    'Topic :: System :: Systems Administration',
+    'Topic :: Utilities',
+    'Environment :: Plugins',
+    'Operating System :: OS Independent',
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+certbot = "^1.12.0"
+cloudns-api = "^0.9.3"
+dnspython = "^2.1.0"
+"zope.interface" = "^5.2.0"
+
+[tool.poetry.plugins."certbot.plugins"]
+dns-cloudns = "certbot_dns_cloudns._internal.authenticator:Authenticator"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
