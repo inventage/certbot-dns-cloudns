@@ -3,7 +3,6 @@ import functools
 import logging
 
 import zope.interface
-
 from certbot import errors
 from certbot import interfaces
 from certbot.plugins import dns_common
@@ -69,13 +68,15 @@ class Authenticator(dns_common.DNSAuthenticator):
             )
 
     def _perform(self, _domain, validation_name, validation):
-        self._get_client().add_txt_record(_domain, validation_name, validation, self.ttl)
+        self._get_client().add_txt_record(
+            _domain, validation_name, validation, self.ttl
+        )
 
     def _cleanup(self, _domain, validation_name, validation):
-        self._get_client().del_txt_record(_domain, validation_name, validation)
+        self._get_client().del_txt_record(
+            _domain, validation_name, validation
+        )
 
     @functools.lru_cache(maxsize=None)
     def _get_client(self):
         return ClouDNSClient(self.credentials)
-
-
