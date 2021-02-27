@@ -1,5 +1,5 @@
-The `~certbot_dns_clounds.dns_cloudns` plugin automates the process of
-completing a ``dns-01`` challenge (`~acme.challenges.DNS01`) by creating, and
+The `certbot-dns-clounds` plugin automates the process of
+completing a ``dns-01`` challenge (`acme.challenges.DNS01`) by creating, and
 subsequently removing, TXT records using the ClouDNS API.
 
 Named Arguments
@@ -50,7 +50,6 @@ file. This warning will be emitted each time Certbot uses the credentials file,
 including for renewal, and cannot be silenced except by addressing the issue
 (e.g., by using a command like ``chmod 600`` to restrict access to the file).
 
-
 Examples
 --------
 
@@ -76,3 +75,11 @@ Examples
      --dns-cloudns-credentials ~/.secrets/certbot/cloudns.ini \
      --dns-cloudns-propagation-seconds 30 \
      -d example.com
+
+Sponsor
+-------
+
+.. image:: https://inventage.com/assets/img/logos/inventage-logo-farbig.svg
+  :target: https://inventage.com
+  :width: 400
+  :alt: Inventage AG
