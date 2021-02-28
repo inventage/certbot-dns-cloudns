@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "certbot-dns-cloudns"
-version = "0.1.0"
+version = "0.4.0"
 description = "ClouDNS DNS Authenticator plugin for Certbot"
 authors = ["Simon Marti <simon.marti@inventage.com>"]
 license = "Unlicense"
