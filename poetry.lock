@@ -467,7 +467,7 @@ test = ["zope.security", "zope.testrunner"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "e2dae25b3d09105b610ada28c3394910e67dbf1266d2b99de0957f0e09c63435"
+content-hash = "d63520b670758e8f5c793c95f850d2c0db61bb20b2de02e6905ede9d06ec418f"
 
 [metadata.files]
 acme = [
