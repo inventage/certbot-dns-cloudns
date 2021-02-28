@@ -8,6 +8,7 @@ from certbot import interfaces
 from certbot.plugins import dns_common
 
 from certbot_dns_cloudns._internal.client import ClouDNSClient
+from certbot_dns_cloudns._internal.resolve import resolve_alias
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +19,7 @@ DEFAULT_NETWORK_TIMEOUT = 45
 @zope.interface.provider(interfaces.IPluginFactory)
 class Authenticator(dns_common.DNSAuthenticator):
     """DNS Authenticator using CLouDNS API
-    This Authenticator uses the  LouDNS API to fulfill a dns-01 challenge.
+    This Authenticator uses the ClouDNS API to fulfill a dns-01 challenge.
     """
 
     description = ('Obtain certificates using a DNS TXT record '
@@ -35,6 +36,7 @@ class Authenticator(dns_common.DNSAuthenticator):
             add, default_propagation_seconds=60
         )
         add('credentials', help='ClouDNS credentials INI file.')
+        add('nameserver', help='The nameserver used to resolve CNAME aliases.')
 
     @staticmethod
     def more_info():
@@ -69,13 +71,17 @@ class Authenticator(dns_common.DNSAuthenticator):
 
     def _perform(self, _domain, validation_name, validation):
         self._get_client().add_txt_record(
-            _domain, validation_name, validation, self.ttl
+            _domain, self._resolve_alias(validation_name), validation, self.ttl
         )
 
     def _cleanup(self, _domain, validation_name, validation):
         self._get_client().del_txt_record(
-            _domain, validation_name, validation
+            _domain, self._resolve_alias(validation_name), validation
         )
+
+    def _resolve_alias(self, validation_name):
+        return resolve_alias(validation_name,
+                             nameserver=self.conf('nameserver'))
 
     @functools.lru_cache(maxsize=None)
     def _get_client(self):

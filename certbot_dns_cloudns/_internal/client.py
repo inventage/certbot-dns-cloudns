@@ -35,7 +35,11 @@ def auth_params(credentials):
 
 
 class ApiErrorResponse(errors.PluginError):
-    pass
+    def __init__(self, response):
+        self.response = response
+        super().__init__(
+            f"Error communicating with the ClouDNS API: {response}"
+        )
 
 
 class ClouDNSClient:
@@ -127,10 +131,17 @@ class ClouDNSClient:
 
             logger.debug(f"Looking up zone {zone_name}.")
             try:
-                self._api_request(cloudns_api.zone.get,
-                                  domain_name=zone_name)
-            except ApiErrorResponse:
-                logger.debug(f"Zone {zone_name} not found")
+                self._api_request(cloudns_api.zone.get, domain_name=zone_name)
+            except ApiErrorResponse as e:
+                response = e.response
+                if (
+                        isinstance(response, dict) and
+                        response.get('status_code') == 200 and
+                        response.get('error') == 'Missing domain-name'
+                ):
+                    logger.debug(f"Zone {zone_name} not found")
+                else:
+                    raise e
             else:
                 logger.debug(f"Found zone {zone_name} for {domain}.")
                 return zone_name, domain[:-len(zone_name) - 1]
@@ -178,11 +189,7 @@ class ClouDNSClient:
         if self._is_successful(response):
             return response_content.get('payload')
         else:
-            raise ApiErrorResponse(
-                'Error communicating with the ClouDNS API: {0}'.format(
-                    response_content
-                )
-            )
+            raise ApiErrorResponse(response_content)
 
     @staticmethod
     def _is_successful(response):
