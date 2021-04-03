@@ -1,5 +1,6 @@
 # Credentials files
 *.ini
+/*.sh
 
 ### Python
 # Byte-compiled / optimized / DLL files
