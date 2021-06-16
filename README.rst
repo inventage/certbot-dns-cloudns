@@ -99,14 +99,14 @@ Examples
 .. code-block:: bash
 
    certbot certonly \
-     --dns-cloudns \
+     --authenticator dns-cloudns \
      --dns-cloudns-credentials ~/.secrets/certbot/cloudns.ini \
      -d example.com
 
 .. code-block:: bash
 
    certbot certonly \
-     --dns-cloudns \
+     --authenticator dns-cloudns \
      --dns-cloudns-credentials ~/.secrets/certbot/cloudns.ini \
      -d example.com \
      -d www.example.com
@@ -114,7 +114,7 @@ Examples
 .. code-block:: bash
 
    certbot certonly \
-     --dns-cloudns \
+     --authenticator dns-cloudns \
      --dns-cloudns-credentials ~/.secrets/certbot/cloudns.ini \
      --dns-cloudns-propagation-seconds 30 \
      -d example.com
