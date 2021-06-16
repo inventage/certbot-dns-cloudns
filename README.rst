@@ -84,6 +84,14 @@ TXT records from Certbot. In these cases setting the
 ``--dns-cloudns-nameserver`` option to any public nameserver (e.g. ``1.1.1.1``)
 should resolve the issue.
 
+Installation
+------------
+
+Install the plugin using ``pip``:
+
+.. code-block:: bash
+
+  pip install certbot-dns-cloudns
 
 Examples
 --------
