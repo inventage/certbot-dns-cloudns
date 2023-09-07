@@ -1,11 +1,11 @@
-FROM python:3.10 AS build
+FROM python:3.11 AS build
 
 WORKDIR /opt/certbot/plugin
 
 # Install poetry
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - && \
-    ln -s ~/.poetry/bin/poetry /usr/bin/ && \
-    poetry config virtualenvs.create false
+RUN curl -sSL https://install.python-poetry.org | python - && \
+ln -s ~/.local/bin/poetry /usr/bin/ && \
+poetry config virtualenvs.create false
 
 # Build plugin
 COPY [".", "."]
