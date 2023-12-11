@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "certbot-dns-cloudns"
-version = "0.5.1"
+version = "0.6.0"
 description = "ClouDNS DNS Authenticator plugin for Certbot"
 authors = ["Simon Marti <simon.marti@inventage.com>"]
 license = "Unlicense"
@@ -24,8 +24,8 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0"
-acme = "2.6.0"
-certbot = "2.6.0"
+acme = ">=2.7.4,<2.8.0"
+certbot = ">=2.7.4,<2.8.0"
 cloudns-api = "0.9.3"
 dnspython = "2.3.0"
 "zope.interface" = ">=5.4.0"
