@@ -75,6 +75,7 @@ jobs:
           - "3.9"
           - "3.10"
           - "3.11"
+          - "3.12"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -93,4 +94,5 @@ jobs:
       - name: Build package
         run: poetry build
 
-      # TODO: Run some tests
+      - name: Run tests
+        run: poetry run pytest
