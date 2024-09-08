@@ -2,13 +2,13 @@
 
 [[package]]
 name = "acme"
-version = "2.7.4"
+version = "2.11.0"
 description = "ACME protocol implementation in Python"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "acme-2.7.4-py3-none-any.whl", hash = "sha256:c72662887ec1c5ddc3c2e6103b89a22e12d67befc44f14b3d41874f3236d7a6b"},
-    {file = "acme-2.7.4.tar.gz", hash = "sha256:b9d27f49156b111e207be4aae6fc468c273572c99461f05fd65d679e338322f6"},
+    {file = "acme-2.11.0-py3-none-any.whl", hash = "sha256:23213ac3074a78862b219e0a30e141fd53238a8bdcf0668bd4dea59b28873fb8"},
+    {file = "acme-2.11.0.tar.gz", hash = "sha256:f4950015cf52ff0de12f37fc28034c7710aca63f64f1696253d2f6cb9f22645e"},
 ]
 
 [package.dependencies]
@@ -26,17 +26,17 @@ test = ["importlib-resources (>=1.3.1)", "pytest", "pytest-xdist", "typing-exten
 
 [[package]]
 name = "certbot"
-version = "2.7.4"
+version = "2.11.0"
 description = "ACME client"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "certbot-2.7.4-py3-none-any.whl", hash = "sha256:d2b344a7357b38565e465678ba9e0e7ecbbdc5332832404b58499691c88cdbb9"},
-    {file = "certbot-2.7.4.tar.gz", hash = "sha256:173778fef4e2e3014f60be02d4798dff7ea32790277b90b3c7249c5d46d17c75"},
+    {file = "certbot-2.11.0-py3-none-any.whl", hash = "sha256:dc4e0a48bcb09448d60362170ca1047cc9a81966da0dd35135f2561f0ea7d5b1"},
+    {file = "certbot-2.11.0.tar.gz", hash = "sha256:257ae1cb0a534373ca50dd807c9ae96f27660e41379c45afb9b50cab0e6a7a97"},
 ]
 
 [package.dependencies]
-acme = ">=2.7.4"
+acme = ">=2.11.0"
 ConfigArgParse = ">=1.5.3"
 configobj = ">=5.0.6"
 cryptography = ">=3.2.1"
@@ -51,10 +51,10 @@ pywin32 = {version = ">=300", markers = "sys_platform == \"win32\""}
 setuptools = ">=41.6.0"
 
 [package.extras]
-all = ["Sphinx (>=1.2)", "azure-devops", "coverage", "ipdb", "mypy", "pip", "poetry (>=1.2.0)", "poetry-plugin-export (>=1.1.0)", "pylint", "pytest", "pytest-cov", "pytest-xdist", "setuptools", "sphinx-rtd-theme", "tox", "twine", "types-httplib2", "types-pyOpenSSL", "types-pyRFC3339", "types-pytz", "types-pywin32", "types-requests", "types-setuptools", "types-six", "typing-extensions", "wheel"]
+all = ["Sphinx (>=1.2)", "azure-devops", "coverage", "ipdb", "mypy", "pip", "poetry (>=1.2.0)", "poetry-plugin-export (>=1.1.0)", "pylint", "pytest", "pytest-cov", "pytest-xdist", "setuptools", "sphinx-rtd-theme", "tox", "twine", "types-httplib2", "types-pyOpenSSL", "types-pyRFC3339", "types-pytz", "types-pywin32", "types-requests", "types-setuptools", "types-six", "wheel"]
 dev = ["azure-devops", "ipdb", "poetry (>=1.2.0)", "poetry-plugin-export (>=1.1.0)", "twine"]
 docs = ["Sphinx (>=1.2)", "sphinx-rtd-theme"]
-test = ["coverage", "mypy", "pip", "pylint", "pytest", "pytest-cov", "pytest-xdist", "setuptools", "tox", "types-httplib2", "types-pyOpenSSL", "types-pyRFC3339", "types-pytz", "types-pywin32", "types-requests", "types-setuptools", "types-six", "typing-extensions", "wheel"]
+test = ["coverage", "mypy", "pip", "pylint", "pytest", "pytest-cov", "pytest-xdist", "setuptools", "tox", "types-httplib2", "types-pyOpenSSL", "types-pyRFC3339", "types-pytz", "types-pywin32", "types-requests", "types-setuptools", "types-six", "wheel"]
 
 [[package]]
 name = "certifi"
@@ -779,4 +779,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<4.0"
-content-hash = "12deb71f9278b1b944dccd0ba89689bdfa6ce6b1e80166422db6aa5ca2781679"
+content-hash = "0e46d66dc62b360a5c5b2879ac620b1c1f2096965db06d32bb84d1555a47a139"
