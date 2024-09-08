@@ -23,7 +23,7 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.7,<4.0"
+python = ">=3.8,<4.0"
 acme = ">=2.7.4,<2.8.0"
 certbot = ">=2.7.4,<2.8.0"
 cloudns-api = "0.9.3"
@@ -36,6 +36,12 @@ dns-cloudns = "certbot_dns_cloudns._internal.authenticator:Authenticator"
 [tool.poetry.dev-dependencies]
 isort = "5.8.0"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
